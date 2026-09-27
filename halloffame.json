@@ -1,0 +1,14 @@
+{
+  "_howto": "Weekly update: add a new object at the TOP of \"weeks\" (newest first). Each pick needs type (\"wall\" or \"bingo\") and nick. Optional: text, score (bingo, 0-25), seed (bingo card number), source (\"wall\" or \"telegram\"), image (only files in assets/halloffame/, .webp/.png/.jpg). Keep \"weeks\" empty to show the 'First picks: this week' card. Copy the shape from _example. Recognition only: no prizes are listed here.",
+  "updated": "2026-09-27",
+  "weeks": [],
+  "_example": [
+    {
+      "label": "Week of 12 Oct 2026",
+      "picks": [
+        { "type": "wall", "nick": "example_nick", "text": "Sold my BTC at 16k and bought a boat. The boat also went down.", "source": "wall", "image": "assets/halloffame/w42_example_nick.webp" },
+        { "type": "bingo", "nick": "another_nick", "score": 19, "seed": "4821", "text": "Checked charts at my own wedding.", "source": "telegram" }
+      ]
+    }
+  ]
+}

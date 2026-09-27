@@ -85,7 +85,7 @@
   var zoom=$('zoom'),zv=false,ticking=false;
   function pctSeen(el){var vh=innerHeight,r=el.getBoundingClientRect();if(r.top>vh)return 0;if(r.bottom<0)return 100;return Math.round((vh-r.top)/((vh+r.height)/100))}
   if(!reduce&&'IntersectionObserver' in window){new IntersectionObserver(function(es){zv=es[0].isIntersecting}).observe(zoom)}
-  var secs=['buy','how','receipts','proofs','contest','wall','faq','links','risk'],map={how:'buy',receipts:'proofs',wall:'contest',faq:'contest',links:'contest',risk:'contest'};
+  var secs=['buy','how','receipts','proofs','contest','wall','halloffame','faq','links','risk'],map={how:'buy',receipts:'proofs',wall:'contest',halloffame:'contest',faq:'contest',links:'contest',risk:'contest'};
   function onScroll(){
     if(ticking)return;ticking=true;
     requestAnimationFrame(function(){
