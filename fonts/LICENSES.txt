@@ -1,0 +1,2 @@
+luckiest-guy.woff2  - Luckiest Guy by Astigmatic, Apache License 2.0 (subset)
+opensans-latin*.woff2 - Open Sans by Steve Matteson, SIL Open Font License 1.1
