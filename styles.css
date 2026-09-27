@@ -681,3 +681,52 @@ footer .fine{font-size:13px;margin-top:10px;font-weight:600}
 .hofmini p{color:var(--muted)}
 .hofmini .btn{background:var(--yellow);color:#000;border-color:#000;box-shadow:0 5px 0 #000}
 @media (max-width:760px){.hofmini{box-shadow:5px 5px 0 var(--yellow)}}
+
+/* ================= Contract address (ca.json loader) + share buttons ================= */
+[hidden]{display:none!important}
+.menu-open .mmenu a:nth-child(10){transition-delay:.57s}
+.links a{white-space:nowrap}
+@media (min-width:981px) and (max-width:1200px){.links{gap:14px;font-size:13.5px}.xbtn{padding:4px 11px}}
+@media (min-width:981px) and (max-width:1120px){.links{gap:12px;font-size:13px}.links a[href$="#proofs"],.links a[href$="#faq"]{display:none}}
+.ca-full{display:inline-flex;flex-wrap:wrap;gap:6px 10px;align-items:center;justify-content:center;max-width:100%}
+.ca-full .ca-addr{font-size:.95em}
+.ca-full .ca-copy{min-height:34px;padding:5px 12px;font-size:12.5px}
+.ca-link{color:var(--neon);font-weight:800;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.ca-addr-big{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace!important;font-size:clamp(14px,2.4vw,24px)!important;line-height:1.35!important;word-break:break-all;overflow-wrap:anywhere;-webkit-text-stroke:0!important;text-shadow:none!important;letter-spacing:0!important}
+.ca-links{text-align:center;margin:12px 0 0;display:flex;gap:10px 18px;justify-content:center;flex-wrap:wrap;font-size:15px}
+.hero-ca{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);display:flex;flex-direction:column;gap:6px}
+.hero-ca .lbl{font-weight:800;letter-spacing:1.4px;font-size:12px;text-transform:uppercase;color:var(--muted)}
+.hero-ca strong{font-weight:400;color:#fff}
+.hero-ca .ca-full{justify-content:flex-start}
+.hn-caline{margin:8px 0 0;font-size:13.5px}
+.hn-ca .ca-link{color:#000}
+.hn-ca .mono{background:rgba(0,0,0,.1)}
+footer .mono{background:rgba(0,0,0,.12);color:#000}
+footer .ca-link{color:#000}
+footer .ca-copy{background:#000;color:var(--neon);box-shadow:0 3px 0 rgba(0,0,0,.35)}
+footer .ca-full{font-size:16px;font-family:"Open Sans",sans-serif}
+/* Telegram share button */
+.btn-tg{background:#229ED9;color:#fff;border-color:#000}
+.btn-tg svg{width:19px;height:19px;fill:#fff;margin-top:-4px}
+/* Wall: dl | submit, X | Telegram, native share full width */
+.actions #dl{order:1}.actions #submit{order:2;grid-column:auto}.actions #xshare{order:3}.actions #tgshare{order:4}.actions #wshare{order:5;grid-column:1/-1}
+/* Bingo side column: dl | X, Telegram | copy link, native share full width */
+.bside .actions #dl,.bside .actions #xshare,.bside .actions #tgshare,.bside .actions #copylink{order:0;grid-column:auto}
+.bside .actions #wshare{order:3;grid-column:1/-1}
+.bside .actions .btn{font-size:16px;padding:13px 8px 9px}
+@media (max-width:980px){.bside .actions .btn{font-size:19px;padding:14px 12px 10px}}
+/* Hall of Fame share */
+.sbtn{display:inline-flex;align-items:center;gap:6px;font:800 13.5px "Open Sans",sans-serif;text-decoration:none;padding:6px 13px;border-radius:999px;border:2px solid #000;box-shadow:0 3px 0 #000;min-height:36px;transition:transform var(--duration-medium)}
+.sbtn:active{transform:translateY(2px);box-shadow:0 1px 0 #000}
+.sbtn svg{width:14px;height:14px}
+.sbtn-x{background:#fff;color:#000}.sbtn-x svg{fill:#000}
+.sbtn-tg{background:#229ED9;color:#fff}.sbtn-tg svg{fill:#fff}
+.hof-sharebar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin:-12px 0 26px}
+.hof-sharebar span{font-weight:800;font-size:14.5px;color:#fff}
+.hof-sharebar small{color:var(--muted);font-size:13px;font-weight:600}
+.hof-share{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:4px}
+.hof-share span{font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+.hof-share .sbtn{font-size:12.5px;padding:4px 11px;min-height:32px}
+html.ca-live [data-ca-slot]{text-transform:none}
+html.ca-live footer strong[data-ca-slot=full]{display:flex;margin:8px auto}
+@media (min-width:981px){.actions .btn-tg .sh{display:none}}

@@ -155,15 +155,17 @@
   var cv=$('card'),ctx=cv.getContext('2d');
   var inp=$('confession'),hin=$('handle'),cnt=$('count-chars'),num=rnd(),theme='neon';
   function state(){return{text:clean(inp.value,MAX).trim(),handle:clean(hin.value,MAXH).trim(),num:num,theme:theme}}
-  function shareText(s){return 'My most unbearable bear-market moment: "'+s.text+'" 🐻👢 Confess yours at unbear.fun #UNBEARABLE $UNBEAR'}
+  /* share text carries no link and no cashtag: the link is passed once, via url= (fixes the old double link on X) */
+  function shareText(s){return 'My most unbearable bear-market moment: "'+s.text+'" 🐻👢 Confess yours #UNBEARABLE'}
   function render(){
     var s=state();
     drawCard(ctx,s);
     cnt.textContent=Array.from(clean(inp.value,MAX)).length+' / '+MAX;
     $('numlbl').textContent='#'+pad(num);
     $('xshare').href='https://x.com/intent/post?text='+encodeURIComponent(shareText(s))+'&url='+encodeURIComponent(SITE);
+    $('tgshare').href='https://t.me/share/url?url='+encodeURIComponent(SITE)+'&text='+encodeURIComponent(shareText(s));
     var off=!s.text;
-    ['dl','submit','xshare','wshare'].forEach(function(id){var b=$(id);if(b)b.setAttribute('aria-disabled',off?'true':'false')});
+    ['dl','submit','xshare','tgshare','wshare'].forEach(function(id){var b=$(id);if(b)b.setAttribute('aria-disabled',off?'true':'false')});
   }
   /* keep typed value within limits and on one line */
   function sanitizeField(el,max){
@@ -200,6 +202,11 @@
     if(!need()){e.preventDefault();return}
     render();
     toast('Optional, just for fun: attach your downloaded card image to the post.');
+  });
+  $('tgshare').addEventListener('click',function(e){
+    if(!need()){e.preventDefault();return}
+    render();
+    toast('Optional, just for fun: attach your downloaded card image in Telegram.');
   });
   /* Submit to the Wall: no backend, so copy the entry and open the public Telegram group */
   function copyText(t,ok,fail){

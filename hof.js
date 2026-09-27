@@ -11,6 +11,7 @@
   }
   if(!list||!window.fetch)return;
   function el(tag,cls,txt){var e=d.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+  var HOF_URL='https://unbear.fun/#halloffame';
   var IMG=/^assets\/halloffame\/[A-Za-z0-9._-]+\.(webp|png|jpe?g)$/;
   function card(p,wk){
     var type=p.type==='bingo'?'bingo':'wall';
@@ -31,6 +32,14 @@
     var by=el('p','hof-by');by.appendChild(d.createTextNode('by '));by.appendChild(el('strong',null,String(p.nick).slice(0,32)));
     if(p.source==='telegram'||p.source==='wall')by.appendChild(el('span','hof-src',p.source==='telegram'?' · via Telegram':' · via the Wall'));
     a.appendChild(by);
+    /* per-pick share: plain intent links, clean URL (no tracking params) */
+    var nick=String(p.nick).slice(0,32),q=p.text?' “'+String(p.text).slice(0,110)+(String(p.text).length>110?'…':'')+'”':'';
+    var st='Featured in the Unbearable Hall of Fame: '+(type==='bingo'?'a Bingo card':'a confession')+' by '+nick+q+' 🏆🐻 #UNBEARABLE';
+    var sh=el('div','hof-share');sh.appendChild(el('span',null,'Share'));
+    var x=el('a','sbtn sbtn-x','X');x.href='https://x.com/intent/post?text='+encodeURIComponent(st)+'&url='+encodeURIComponent(HOF_URL);
+    var tg=el('a','sbtn sbtn-tg','Telegram');tg.href='https://t.me/share/url?url='+encodeURIComponent(HOF_URL)+'&text='+encodeURIComponent(st);
+    [x,tg].forEach(function(l){l.target='_blank';l.rel='noopener';l.setAttribute('aria-label','Share this pick by '+nick+' on '+l.textContent);sh.appendChild(l)});
+    a.appendChild(sh);
     return a;
   }
   fetch('halloffame.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){

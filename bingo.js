@@ -167,7 +167,9 @@
 
   /* ---------- UI ---------- */
   var grid=$('bgrid'),cv=$('bcard'),cx2=cv.getContext('2d'),prevLines=0,btns=[];
-  function shareText(){return 'I scored '+score()+'/25 on the Unbearable Bingo 🐻👢 How unbearable was your bear market? unbear.fun/bingo.html #UNBEARABLE'}
+  /* ?seed= link reproduces the exact same card for whoever opens it; the text itself carries no link (url= adds it once) */
+  function shareUrl(){return SITE+'?seed='+encodeURIComponent(seed)}
+  function shareText(){return 'I scored '+score()+'/25 on Unbearable Bingo 🐻👢 Beat my card #'+seed+' #UNBEARABLE'}
   function buildGrid(){
     while(grid.firstChild)grid.removeChild(grid.firstChild);btns=[];
     cells.forEach(function(cell,i){
@@ -201,7 +203,8 @@
     st.classList.toggle('hit',done.length>0);
     if(user&&done.length>prevLines){toast(n===25?'FULL BINGO! The bear has been fully kicked out 👢':'BINGO! 🐻👢');grid.classList.remove('boom');void grid.offsetWidth;grid.classList.add('boom')}
     prevLines=done.length;
-    $('xshare').href='https://x.com/intent/post?text='+encodeURIComponent(shareText());
+    $('xshare').href='https://x.com/intent/post?text='+encodeURIComponent(shareText())+'&url='+encodeURIComponent(shareUrl());
+    $('tgshare').href='https://t.me/share/url?url='+encodeURIComponent(shareUrl())+'&text='+encodeURIComponent(shareText());
     drawCard(cx2);
   }
   function newCard(s){seed=s||newSeed();marks=[];setup();save();buildGrid();prevLines=0;update(false);
@@ -214,12 +217,20 @@
   function toBlob(cb){try{cv.toBlob(function(b){b?cb(b):toast('Could not export the image.')},'image/png')}catch(e){toast('Could not export the image. Open the page via unbear.fun and try again.')}}
   $('dl').addEventListener('click',function(){drawCard(cx2);toBlob(function(b){var u=URL.createObjectURL(b),a=d.createElement('a');a.href=u;a.download=fname();d.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);toast('Card saved 👢')})});
   $('xshare').addEventListener('click',function(){toast('Optional: attach your downloaded card image to the post.')});
+  $('tgshare').addEventListener('click',function(){toast('Optional: attach your downloaded card image in Telegram.')});
+  $('copylink').addEventListener('click',function(){
+    var u=shareUrl(),b=this;
+    function ok(){b.textContent='✓ Link copied';setTimeout(function(){b.textContent='🔗 Copy card link'},1600);toast('Link to card #'+seed+' copied. Same link, same card.')}
+    function fb(){var ta=d.createElement('textarea');ta.value=u;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';d.body.appendChild(ta);ta.select();var r=false;try{r=d.execCommand('copy')}catch(e){}d.body.removeChild(ta);r?ok():window.prompt('Copy this link:',u)}
+    if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(u).then(ok,fb);else fb();
+  });
   var ws=$('wshare'),coarse=window.matchMedia('(pointer: coarse)').matches||window.matchMedia('(max-width: 760px)').matches,canFiles=false;
   try{canFiles=!!(navigator.canShare&&navigator.share&&navigator.canShare({files:[new File([new Blob(['x'],{type:'image/png'})],'t.png',{type:'image/png'})]}))}catch(e){}
   if(canFiles&&coarse)ws.hidden=false;
-  ws.addEventListener('click',function(){drawCard(cx2);toBlob(function(b){var f=new File([b],fname(),{type:'image/png'}),data={files:[f],title:'Unbearable Bingo',text:shareText()};if(!navigator.canShare(data))data={files:[f]};navigator.share(data).catch(function(e){if(e&&e.name!=='AbortError')toast('Sharing failed. Use Download PNG instead.')})})});
+  ws.addEventListener('click',function(){drawCard(cx2);toBlob(function(b){var f=new File([b],fname(),{type:'image/png'}),data={files:[f],title:'Unbearable Bingo',text:shareText()+' '+shareUrl()};if(!navigator.canShare(data))data={files:[f]};navigator.share(data).catch(function(e){if(e&&e.name!=='AbortError')toast('Sharing failed. Use Download PNG instead.')})})});
 
   load();buildGrid();prevLines=doneLines().length;update(false);
+  if(cleanSeed(new URLSearchParams(location.search).get('seed')))setTimeout(function(){toast('Card #'+seed+' from a shared link. Tap your sins and compare scores.')},600);
   var redraw=function(){drawCard(cx2);fitCells()};imgs.bull.onload=imgs.bear.onload=redraw;
   if(d.fonts&&d.fonts.load){Promise.all([d.fonts.load('400 40px "Luckiest Guy"'),d.fonts.load('800 16px "Open Sans"')]).then(redraw,redraw);d.fonts.ready.then(redraw)}
   window.UNBEAR_BINGO={fitOne:fitOne,newCard:newCard,mark:function(list){marks=[];list.forEach(function(i){marks[i]=true});setup();save();update(false)},sins:SINS.length};

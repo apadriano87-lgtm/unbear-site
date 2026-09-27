@@ -32,14 +32,14 @@
   });
 
   /* Contract box. Placeholder until launch.
-     AT LAUNCH: set data-ca="0x..." on <button id="ca"> and replace the text of #ca-text in index.html. */
+     AT LAUNCH: just edit /ca.json (ca.js fills #ca, sets data-ca and every [data-ca-slot]). Optionally also set data-ca + #ca-text here in the HTML for no-JS visitors. */
   $('ca').addEventListener('click',function(){
     var ca=this.getAttribute('data-ca');
     if(!ca){
-      toast('Not live yet. The address is revealed Thu 8 Oct, 20:00 Warsaw time. Any address before that is fake.');
+      toast('Not live yet: revealed Thu 8 Oct, 20:00 Warsaw time. The contract address is published only on unbear.fun and in t.me/unbear_fun. Anything else is fake.');
       $('ca-tap').textContent='Coming soon';setTimeout(function(){$('ca-tap').textContent='Tap to copy'},2200);return;
     }
-    copyText(ca,function(){$('ca-tap').textContent='Copied!';toast('Contract address copied. It is published only here and on t.me/unbear_fun.')});
+    copyText(ca,function(){$('ca-tap').textContent='Copied!';toast('Contract address copied. It is published only on unbear.fun and in t.me/unbear_fun. Anything else is fake.')});
   });
 
   /* Full-screen menu */
