@@ -349,3 +349,103 @@ footer .fine{font-size:13px;margin-top:10px;font-weight:600}
 }
 .mono.nb{word-break:normal;overflow-wrap:normal}
 @media (max-width:400px){.eyebrow{font-size:10px;letter-spacing:.5px;padding-left:10px;padding-right:10px;gap:6px}}
+
+/* ================= Unbearable Wall (wall.html) + home CTA ================= */
+.links a[aria-current="page"]{color:var(--neon)}
+.links a[aria-current="page"]::after{transform:scaleX(1)}
+.menu-open .mmenu a:nth-child(7){transition-delay:.42s}.menu-open .mmenu a:nth-child(8){transition-delay:.47s}
+.wall-hero{padding:28px 0 30px}
+.wall-title{font-size:clamp(44px,6.2vw,74px);line-height:.98;margin:4px 0 12px;color:#fff;paint-order:stroke fill;-webkit-text-stroke:.12em #000;text-shadow:0 .07em 0 #000}
+.wall-title em{font-style:normal;color:var(--neon)}
+.maker{display:grid;grid-template-columns:1.25fr .9fr;gap:26px;align-items:start}
+.preview{position:sticky;top:calc(var(--nav-h) + 16px);z-index:3}
+.cardframe{border:3px solid #000;border-radius:14px;overflow:hidden;background:#000;box-shadow:10px 10px 0 var(--neon);transform:rotate(-.6deg)}
+.cardframe canvas{display:block;width:100%;height:auto;aspect-ratio:1200/675}
+.mform{padding:22px}
+.field{margin:0 0 16px;border:0;padding:0;min-width:0}
+.flabel{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-family:"Luckiest Guy",Impact,sans-serif;font-size:20px;letter-spacing:.5px;color:var(--neon);margin-bottom:6px;padding:0}
+.flabel .opt{font:600 13px "Open Sans",sans-serif;color:var(--muted);letter-spacing:0}
+.chars{font:800 13px "Open Sans",sans-serif;color:var(--muted);font-variant-numeric:tabular-nums}
+.mform textarea,.mform input[type=text]{display:block;width:100%;font:700 17px/1.4 "Open Sans",sans-serif;color:#0b0b12;background:#fff;border:3px solid #000;border-radius:12px;padding:12px 14px;box-shadow:0 4px 0 #000;resize:none;-webkit-appearance:none;appearance:none}
+.mform textarea{min-height:82px}
+.mform textarea:focus,.mform input[type=text]:focus{outline:3px solid var(--yellow);outline-offset:2px}
+.mform small{display:block;color:var(--muted);font-size:13px;margin-top:8px}
+.swatches{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.themes legend{margin-bottom:6px}
+.sw{position:relative;display:flex;align-items:center;gap:8px;cursor:pointer;border:2px solid rgba(255,255,255,.2);border-radius:12px;padding:8px 10px;font-weight:800;font-size:14px;background:rgba(0,0,0,.25);min-height:46px;transition:border-color var(--duration-default),transform var(--duration-default)}
+.sw input{position:absolute;opacity:0;pointer-events:none}
+.sw::before{content:"";flex:0 0 26px;height:26px;border-radius:50%;border:3px solid #000;box-shadow:0 0 0 2px rgba(255,255,255,.6)}
+.sw-neon::before{background:linear-gradient(135deg,#0a1f5c 50%,#39ff14 50%)}
+.sw-red::before{background:linear-gradient(135deg,#ff2e3f 50%,#ffe600 50%)}
+.sw-yellow::before{background:linear-gradient(135deg,#ffe600 50%,#ff2e3f 50%)}
+.sw-bubblegum::before{background:linear-gradient(135deg,#ff5fc8 50%,#8ff7ff 50%)}
+.sw:has(input:checked){border-color:var(--neon);background:rgba(57,255,20,.12);transform:translateY(-1px)}
+.sw:has(input:focus-visible){outline:3px solid var(--yellow);outline-offset:2px}
+.numrow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-weight:700;color:var(--muted);margin:2px 0 18px}
+.numrow b{font-family:"Luckiest Guy",Impact,sans-serif;font-weight:400;font-size:20px;color:#fff;letter-spacing:.5px}
+.reroll{font:800 13px "Open Sans",sans-serif;border:2px solid var(--neon);background:#000;color:var(--neon);border-radius:999px;padding:6px 12px;cursor:pointer;min-height:36px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.actions .btn{width:100%;font-size:19px;padding:14px 12px 10px}
+.actions [hidden]{display:none!important}
+.actions .btn[aria-disabled=true]{opacity:.55}
+.btn-x{background:#fff;color:#000}
+.btn-sub{background:var(--yellow);color:#000}
+.btn-o2{background:#000;color:var(--neon);border-color:var(--neon)}
+.btn-x svg{width:18px;height:18px;fill:#000;margin-top:-4px}
+.attach{margin:14px 0 0;padding:12px 14px;border-radius:12px;background:rgba(255,230,0,.1);border:2px dashed var(--yellow);font-size:14.5px;color:#fff6c4}
+.attach strong{color:var(--yellow)}
+/* rules */
+.rulebox{position:relative;background:var(--yellow);color:#000;border:3px solid #000;border-radius:22px;padding:30px 26px 24px;box-shadow:10px 10px 0 #000;transform:rotate(-.4deg)}
+.rulebox h2{color:#000}.rulebox h2 em{color:var(--red)}
+.rulebox a{color:#000;font-weight:800}
+.rtag{position:absolute;top:-18px;right:20px;background:var(--red);color:#fff;border:3px solid #000;border-radius:10px;padding:6px 14px 2px;font-size:18px;transform:rotate(4deg);box-shadow:0 4px 0 #000}
+.rtext{font-size:clamp(17px,2.2vw,21px);line-height:1.45;margin:6px 0 16px;max-width:900px}
+.rsteps{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rsteps li{background:#fff;border:3px solid #000;border-radius:14px;padding:12px 14px 12px 56px;position:relative;font-weight:600;font-size:15.5px}
+.rsteps li b{position:absolute;left:12px;top:12px;width:32px;height:32px;border-radius:50%;background:var(--neon);border:3px solid #000;display:grid;place-items:center;font-family:"Luckiest Guy",Impact,sans-serif;font-weight:400;padding-top:3px}
+.rulebox small{display:block;font-size:13.5px;color:#2a2a2a}
+/* example wall */
+.exwall{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.excard{position:relative;margin:0;background:#020a22;border:3px solid #000;border-radius:14px;overflow:hidden;box-shadow:6px 6px 0 rgba(57,255,20,.55);transition:transform var(--duration-long) var(--ease-out-slow)}
+.excard:nth-child(odd){transform:rotate(-1deg)}.excard:nth-child(even){transform:rotate(1deg)}
+@media (hover:hover){.excard:hover{transform:rotate(0) translateY(-5px)}}
+.excard canvas{display:block;width:100%;height:auto;aspect-ratio:1200/675}
+.exlab{position:absolute;top:8px;right:8px;background:#fff;color:#000;border:2px solid #000;border-radius:999px;font:800 10.5px/1 "Open Sans",sans-serif;letter-spacing:1.4px;text-transform:uppercase;padding:5px 8px}
+.excard figcaption{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;font-size:13.5px;font-weight:600;color:var(--muted);line-height:1.35}
+.remix{flex-shrink:0;font:800 12.5px "Open Sans",sans-serif;background:var(--neon);color:#000;border:2px solid #000;border-radius:10px;padding:7px 11px;box-shadow:0 3px 0 #000;cursor:pointer;min-height:36px}
+.wall-page .toast{display:block;position:fixed;left:50%;bottom:28px;z-index:40;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#000;color:#fff;border:2px solid var(--neon);border-radius:14px;padding:12px 16px;font-weight:700;font-size:14px;width:max-content;max-width:calc(100vw - 32px);text-align:center;transition:opacity var(--duration-medium),transform var(--duration-medium) var(--ease-out-slow)}
+.wall-page .toast.show{opacity:1;transform:translate(-50%,0)}
+/* home page CTA */
+.wallcta{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;background:linear-gradient(135deg,#ff5fc8,#ff2e3f 55%,#ffb800);border:3px solid #000;border-radius:24px;padding:30px;box-shadow:10px 10px 0 #000;position:relative}
+.wallcta h2{color:#fff;paint-order:stroke fill;-webkit-text-stroke:.1em #000;text-shadow:0 .06em 0 #000}
+.wallcta h2 em{color:var(--yellow)}
+.wallcta .kicker{color:#000;background:var(--yellow);border:2px solid #000;border-radius:999px;padding:3px 10px}
+.wallcta p{color:#fff;font-weight:600;margin:0 0 18px;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.wallcta .wimg{display:block;border:3px solid #000;border-radius:14px;overflow:hidden;transform:rotate(1.5deg);box-shadow:8px 8px 0 #000;background:#000}
+.wallcta .wimg img{display:block;width:100%;height:auto}
+.wallcta .btn{background:#000;color:var(--neon);border-color:#000;box-shadow:0 5px 0 rgba(0,0,0,.45)}
+.wallcta small{display:block;margin-top:14px;color:#fff;font-weight:700;opacity:.9}
+@media (max-width:980px){
+  .maker{grid-template-columns:1fr}
+  .exwall{grid-template-columns:repeat(2,1fr)}
+  .rsteps{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .wall-hero{padding:22px 0 20px}
+  .wall-title{font-size:clamp(40px,12vw,58px)}
+  .maker{gap:18px}
+  .wall-page .mform textarea,.wall-page .mform input[type=text]{scroll-margin-top:calc(var(--nav-h) + 56.25vw + 24px);scroll-margin-bottom:calc(var(--bottom-nav-h) + 16px)}
+  .preview{top:var(--nav-h);margin:0 -16px;padding:8px 16px 12px;transition:background var(--duration-medium)}
+  .preview.stuck{background:linear-gradient(rgba(4,15,46,.97) 85%,rgba(4,15,46,0))}
+  .cardframe{box-shadow:6px 6px 0 var(--neon);transform:none}
+  .mform{padding:18px 16px}
+  .actions{grid-template-columns:1fr}
+  .actions .btn{font-size:21px;padding:16px 14px 12px}
+  .rulebox{padding:28px 18px 20px;box-shadow:6px 6px 0 #000}
+  .exwall{grid-template-columns:1fr;gap:16px}
+  .wall-page .toast{bottom:calc(var(--bottom-nav-h) + 16px)}
+  .wallcta{grid-template-columns:1fr;padding:22px 18px;gap:20px;box-shadow:6px 6px 0 #000}
+  .wallcta .wimg{order:-1}
+  .wallcta .btn{width:100%}
+}
+.actions #dl{order:1}.actions #xshare{order:2}.actions #submit{order:3;grid-column:1/-1}.actions #wshare{order:4;grid-column:1/-1}
