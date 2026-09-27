@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unbearable Bingo: how unbearable was your bear market? | $UNBEAR</title>
+<meta name="description" content="A 5x5 bingo card of bear-market sins. Tap what you did, get your score and a comic card to share. Free, runs in your browser. #UNBEARABLE">
+<meta name="theme-color" content="#040f2e">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://unbear.fun/bingo.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Unbearable ($UNBEAR)">
+<meta property="og:url" content="https://unbear.fun/bingo.html">
+<meta property="og:title" content="Unbearable Bingo: how unbearable was your bear market?">
+<meta property="og:description" content="Sold the bottom? Checked charts at a wedding? Score your bear-market sins out of 25.">
+<meta property="og:image" content="https://unbear.fun/og-bingo.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Comic bingo card of bear-market sins with a score, while a green bull kicks a bear out of the frame">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@unbear_token">
+<meta name="twitter:title" content="Unbearable Bingo">
+<meta name="twitter:description" content="How unbearable was your bear market? Score your sins out of 25.">
+<meta name="twitter:image" content="https://unbear.fun/og-bingo.jpg">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="fonts/luckiest-guy.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/opensans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/bull_sticker.webp" as="image">
+<link rel="preload" href="assets/bear_sticker.webp" as="image">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="wall-page bingo-page">
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="ticker" aria-label="Announcements">
+  <div><span>New: Unbearable Bingo</span><span>Tap your sins · Get your score · Kick the bear</span><span>Launch Thu 8 Oct 2026 · 20:00 Warsaw time</span><span>Only trust unbear.fun + @unbear_token</span><span>Not financial advice</span></div>
+  <div aria-hidden="true"><span>New: Unbearable Bingo</span><span>Tap your sins · Get your score · Kick the bear</span><span>Launch Thu 8 Oct 2026 · 20:00 Warsaw time</span><span>Only trust unbear.fun + @unbear_token</span><span>Not financial advice</span></div>
+</div>
+
+<header class="hdr"><div class="wrap">
+  <a class="brand display" href="./"><img src="favicon-32.png" srcset="icon-192.png 2x" alt="" width="40" height="40">$UNBEAR</a>
+  <nav class="links" aria-label="Main"><a href="./#buy">How to buy</a><a href="./#how">How it works</a><a href="./#proofs">Proofs</a><a href="./#contest">Meme contest</a><a href="wall.html">Wall</a><a href="bingo.html" aria-current="page">Bingo</a><a href="./#faq">FAQ</a><a class="xbtn" href="https://x.com/unbear_token" target="_blank" rel="noopener">@unbear_token</a><a class="xbtn" href="https://t.me/unbear_fun" target="_blank" rel="noopener">Telegram</a></nav>
+  <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><i></i></button>
+</div></header>
+
+<nav class="mmenu" id="mmenu" aria-label="Mobile menu">
+  <a href="./#buy"><span>01</span>How to buy</a>
+  <a href="./#how"><span>02</span>How it works</a>
+  <a href="./#proofs"><span>03</span>Proofs</a>
+  <a href="./#contest"><span>04</span>Meme contest</a>
+  <a href="wall.html"><span>05</span>The Wall</a>
+  <a href="bingo.html" aria-current="page"><span>06</span>Bingo</a>
+  <a href="./#faq"><span>07</span>FAQ</a>
+  <a href="https://x.com/unbear_token" target="_blank" rel="noopener"><span>08</span>Follow on X</a>
+  <a href="https://t.me/unbear_fun" target="_blank" rel="noopener"><span>09</span>Telegram</a>
+  <img class="mbear" src="assets/bear_sticker.webp" alt="" width="420" height="399" loading="lazy">
+  <div class="mfoot">Contract address: <strong style="color:var(--neon)">COMING SOON</strong> · Thu 8 Oct 2026, 20:00 Warsaw time</div>
+</nav>
+
+<main id="main">
+<section class="wall-hero" id="play"><div class="wrap">
+  <span class="kicker">Bear-market confessional · free · no sign-up</span>
+  <h1 class="display wall-title">Unbearable <em>Bingo</em></h1>
+  <p class="lead">How unbearable was your bear market? Tap every sin you committed. Five in a row is BINGO. Then grab a comic card of your score. Everything runs in your browser.</p>
+
+  <div class="bingo">
+    <div class="bboard">
+      <div class="bhead"><span class="display">B·E·A·R·S</span><span class="bseedlbl">Card <b id="bseed">#-----</b> · <b id="bscore2">1/25</b></span></div>
+      <div class="bgrid" id="bgrid" role="group" aria-label="Bingo card: tap the sins you committed"></div>
+      <p class="bstatus" id="bstatus" role="status" aria-live="polite"></p>
+    </div>
+
+    <div class="card bside">
+      <div class="bscorebox"><span class="lbl">Your score</span><b class="display" id="bscore">1/25</b><span class="lbl">unbearable sins</span><span class="verdict" id="bverdict">SUSPICIOUSLY INNOCENT</span></div>
+      <div class="cardframe"><canvas id="bcard" width="1200" height="675" role="img" aria-label="Preview of your shareable bingo card image"></canvas></div>
+      <div class="actions">
+        <button class="btn btn-g" type="button" id="dl">⬇ Download PNG</button>
+        <a class="btn btn-x" id="xshare" href="https://x.com/intent/post" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Share on X</a>
+        <button class="btn btn-o2" type="button" id="wshare" hidden>📲 Share image</button>
+      </div>
+      <div class="bctl"><button type="button" class="reroll" id="bnew">🎲 New card</button><button type="button" class="reroll" id="breset">↺ Clear marks</button></div>
+      <p class="attach">📎 <strong>Sharing on X?</strong> Download the PNG first, then attach it to your post. X can't pull the image from a link. Sharing is optional and just for fun.</p>
+    </div>
+  </div>
+</div></section>
+
+<div class="bandwrap"><div class="band alt" aria-hidden="true"><div><span>SOLD THE BOTTOM<i>✦</i>BOUGHT THE TOP<i>✦</i>LOST THE SEED PHRASE<i>✦</i>SO WE LEFT<i>✦</i>#UNBEARABLE<i>✦</i>NOT FINANCIAL ADVICE<i>✦</i></span></div><div><span>SOLD THE BOTTOM<i>✦</i>BOUGHT THE TOP<i>✦</i>LOST THE SEED PHRASE<i>✦</i>SO WE LEFT<i>✦</i>#UNBEARABLE<i>✦</i>NOT FINANCIAL ADVICE<i>✦</i></span></div></div></div>
+
+<section id="how-bingo"><div class="wrap">
+  <div class="split">
+    <div class="card">
+      <h3>How it works</h3>
+      <ul class="clean">
+        <li>Every card is 24 random sins plus the free center square, <strong>SO WE LEFT</strong>.</li>
+        <li>The card number (seed) is printed on your card. Same number, same card: compare with friends.</li>
+        <li>Complete a row, column or diagonal for BINGO. All 25 is a full bingo.</li>
+        <li>Your marks are saved on this device only.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Community squares</h3>
+      <p>Each week we may add the best confessions from the <a href="wall.html">Unbearable Wall</a> as community squares, credited by nickname. Submitting on the Wall is free: no purchase, no posting or tagging required.</p>
+      <small>Bingo is just for fun: no prizes for scores. Not financial advice. No EU authority has reviewed this project.</small>
+    </div>
+  </div>
+  <div class="wallmini">
+    <div><span class="kicker">Got a story behind a square?</span><h3 class="display">Confess it on the <em>Wall</em></h3></div>
+    <a class="btn btn-g" href="wall.html">Open the Wall →</a>
+  </div>
+</div></section>
+
+<section class="wall-back" style="padding-top:10px"><div class="wrap">
+  <div class="disclaimer">
+    <h2 class="display">Keep it honest</h2>
+    <p><strong>$UNBEAR is a memecoin. It has no intrinsic value and can go to zero.</strong> This bingo is for laughing at the bear market, not for predicting anything. Nothing here is financial advice, and nobody promises any price or return.</p>
+    <p><a href="./">Back to unbear.fun →</a></p>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="big display">UNBEARABLE</div>
+  <div style="font-weight:700">The bear market is unbearable. So we left.</div>
+  <div style="margin-top:10px">Contract address: <strong>COMING SOON</strong> (Thu 8 Oct 2026, 20:00 Warsaw time) · <a href="https://x.com/unbear_token" target="_blank" rel="noopener">@unbear_token</a> · <a href="https://t.me/unbear_fun" target="_blank" rel="noopener">Telegram</a></div>
+  <div class="fine">Memecoin. Not financial advice. Can go to zero. · unbear.fun</div>
+</div></footer>
+
+<a class="fab" href="https://x.com/unbear_token" target="_blank" rel="noopener" aria-label="$UNBEAR on X (@unbear_token)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+
+<nav class="bnav" aria-label="Quick navigation">
+  <a href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</a>
+  <a href="./#proofs"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>Proofs</a>
+  <a href="./#buy" class="buy"><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></b><span>Buy</span></a>
+  <a href="wall.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg>Wall</a>
+  <a href="bingo.html" class="on" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>Bingo</a>
+  <a href="https://x.com/unbear_token" target="_blank" rel="noopener"><svg class="xlogo" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Follow</a>
+</nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="bingo.js" defer></script>
+</body>
+</html>
