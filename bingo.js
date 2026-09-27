@@ -12,10 +12,10 @@
   var SINS=[
     'Sold the bottom','Bought the top','Checked charts at a wedding','Said "this time is different"','Lost my seed phrase',
     'Revenge traded','Zoomed out. It got worse.','Stop-loss hit the exact low','Explained crypto at dinner','Aped in because of the logo',
-    'Checked my wallet at 3am','Deleted the app. Reinstalled.','Called a dump a "hold"','Screenshotted gains. Never sold.','Told family "it\u2019s just a dip"',
-    'Paid more gas than I traded','Hid my bags from my partner','Trusted a "100x" guy','Sent funds to the wrong chain','Averaged down 7 times',
+    'Checked my wallet at 3am','Deleted the app. Got it back.','Called a dump a "hold"','Screenshot gains, never sold.','Told family "it\u2019s just a dip"',
+    'Paid more gas than I traded','Hid my bags from my partner','Trusted a "100x" guy','Sent it to the wrong chain','Averaged down 7 times',
     'FOMO\u2019d into a green candle','Panic sold, then it pumped','Clicked a "claim airdrop" link','Drew chart lines for 3 hours','Swore off crypto. Lied.',
-    'Checked price during a movie','Bought a JPEG of a rock','Held to zero "on principle"','Cried at a red candle','Took advice from a random DM',
+    'Checked price during a movie','Bought a JPEG of a rock','Held to zero "on principle"','Cried at a red candle','Took advice from a DM',
     'Charts in the bathroom','Named a pet after a coin','Ignored all my price alerts','Bought because a celeb tweeted','"Long-term investor" for 2 days'
   ];
 
@@ -178,7 +178,18 @@
       else b.addEventListener('click',function(){marks[i]=!marks[i];save();update(true)});
       grid.appendChild(b);btns.push(b);
     });
+    fitCells();
   }
+  /* shrink a square's text (down to ~70%) if a word or the whole text doesn't fit the cell */
+  function fitOne(b){
+    var t=b.querySelector('.bt');if(!t||b.classList.contains('free'))return;
+    t.style.fontSize='';t.style.maxWidth='';var cs=getComputedStyle(b),fs=parseFloat(getComputedStyle(t).fontSize),min=Math.max(7,fs*.7);
+    var iw=b.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),ih=b.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom)-(b.querySelector('small')?12:0);
+    while(fs>min){var r=t.getBoundingClientRect();if(r.width<=iw+.5&&r.height<=ih+.5)break;fs-=.5;t.style.fontSize=fs+'px'}
+    var e=t.getBoundingClientRect();if(e.width>iw+.5)t.style.maxWidth='100%';/* last resort: let the word wrap instead of clipping */
+  }
+  function fitCells(){btns.forEach(fitOne)}
+  var rz;addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(fitCells,120)});
   function update(user){
     var done=doneLines(),n=score(),win={};done.forEach(function(l){l.forEach(function(i){win[i]=1})});
     btns.forEach(function(b,i){b.setAttribute('aria-pressed',marks[i]?'true':'false');b.classList.toggle('on',!!marks[i]);b.classList.toggle('win',!!win[i])});
@@ -209,9 +220,9 @@
   ws.addEventListener('click',function(){drawCard(cx2);toBlob(function(b){var f=new File([b],fname(),{type:'image/png'}),data={files:[f],title:'Unbearable Bingo',text:shareText()};if(!navigator.canShare(data))data={files:[f]};navigator.share(data).catch(function(e){if(e&&e.name!=='AbortError')toast('Sharing failed. Use Download PNG instead.')})})});
 
   load();buildGrid();prevLines=doneLines().length;update(false);
-  var redraw=function(){drawCard(cx2)};imgs.bull.onload=imgs.bear.onload=redraw;
+  var redraw=function(){drawCard(cx2);fitCells()};imgs.bull.onload=imgs.bear.onload=redraw;
   if(d.fonts&&d.fonts.load){Promise.all([d.fonts.load('400 40px "Luckiest Guy"'),d.fonts.load('800 16px "Open Sans"')]).then(redraw,redraw);d.fonts.ready.then(redraw)}
-  window.UNBEAR_BINGO={newCard:newCard,mark:function(list){marks=[];list.forEach(function(i){marks[i]=true});setup();save();update(false)},sins:SINS.length};
+  window.UNBEAR_BINGO={fitOne:fitOne,newCard:newCard,mark:function(list){marks=[];list.forEach(function(i){marks[i]=true});setup();save();update(false)},sins:SINS.length};
 
   /* ---------- menu ---------- */
   var burger=d.querySelector('.burger'),mobile=window.matchMedia('(max-width: 760px)');
