@@ -132,30 +132,68 @@
   <div class="warn scroll-trigger animate--slide-in">⚠️ <strong>Fake-address warning.</strong> Until launch there is <strong>no</strong> official $UNBEAR contract. Any "$UNBEAR" address you see before 8 Oct, 20:00 is fake. After launch, the only valid address is the one on this page and pinned on @unbear_token. We will never DM you first, never ask for your seed phrase, and never ask you to connect your wallet on another site.</div>
 </div></section>
 
-<section id="how"><div class="wrap">
-  <span class="kicker scroll-trigger animate--fade-in">The whole setup, one screen</span>
-  <h2 class="display scroll-trigger animate--slide-in">How it <em>works</em></h2>
-  <p class="lead scroll-trigger animate--slide-in">Everything below can be checked on-chain once the token is live.</p>
-  <div class="split">
-    <div class="card lift scroll-trigger animate--slide-in" data-cascade id="feecard">
-      <h3>1.5% creator fee</h3>
-      <p>Trades carry a 1.5% creator fee, split into two equal halves:</p>
-      <div class="bar" role="img" aria-label="Fee split: half weekly buyback and burn, half public project wallet"><div class="b1">½ Bear kick</div><div class="b2">½ Project wallet</div></div>
-      <ul class="clean">
-        <li><strong>Weekly bear kick:</strong> once a week, half of the fees are used by hand to buy back $UNBEAR, and those tokens are burned. Each kick is logged in <a href="#proofs">Proofs</a> with its transaction.</li>
-        <li><strong>Public project wallet:</strong> the other half goes to a public wallet used for promotion and meme contest prizes. Anyone can watch it.</li>
-      </ul>
-      <small>Buybacks and burns are a mechanism, not a promise about price.</small>
-    </div>
-    <div class="card lift scroll-trigger animate--slide-in" data-cascade>
-      <h3>Dev buy: time-locked</h3>
-      <p>The dev buy is <strong>0.02 ETH</strong>. The tokens from it are locked in <a href="https://sablier.com" target="_blank" rel="noopener">Sablier</a> for <strong>90 days</strong> and unlock gradually over that period. The lock link is posted in <a href="#proofs">Proofs</a> at launch.</p>
-      <h3 style="margin-top:18px">One ETH pool only</h3>
-      <p>$UNBEAR has exactly one pool: the ETH pool on par.family. If you see another "$UNBEAR" pair somewhere else, it isn't us.</p>
-      <h3 style="margin-top:18px">Honest promotion</h3>
-      <p>No bots, no bought followers, no profit promises. Just memes and receipts.</p>
+<section id="how" class="hw"><div class="wrap">
+  <div class="hw-head">
+    <div>
+      <span class="kicker scroll-trigger animate--fade-in">The mechanics · don't trust, verify</span>
+      <h2 class="display scroll-trigger animate--slide-in">How <em>$UNBEAR</em> works</h2>
+      <p class="lead scroll-trigger animate--slide-in">The whole setup in one diagram. Every box tells you how to check it yourself. The Verify links are switched off on purpose until launch, Thu 8 Oct 2026, 20:00 Warsaw time.</p>
     </div>
   </div>
+
+  <!-- AT LAUNCH: for each .vbtn add href="..." (plus target="_blank" rel="noopener" for external links), remove aria-disabled, and change the "Link at launch" text to "Open". -->
+  <div class="hflow">
+    <article class="hnode hn-ca scroll-trigger animate--slide-in" data-cascade>
+      <span class="hn-no">1</span>
+      <h3>Get the real contract</h3>
+      <p>The contract address is published <strong>only</strong> on <strong>unbear.fun</strong> and <strong>t.me/unbear_fun</strong>, at launch: <strong>Thu 8 Oct 2026, 20:00 Warsaw time</strong>.</p>
+      <p class="hn-alert">Any address posted earlier is fake.</p>
+      <a class="vbtn" role="link" aria-disabled="true" data-verify="contract"><span class="vk">Verify contract</span><span class="vs">Link at launch</span></a>
+    </article>
+
+    <article class="hnode hn-pool scroll-trigger animate--slide-in" data-cascade>
+      <span class="hn-no">2</span>
+      <h3>Trade in one ETH pool</h3>
+      <p>$UNBEAR has a <strong>single ETH pool</strong> on par.family. No other pairs. If you see another "$UNBEAR" pair, it isn't us.</p>
+      <p class="hn-check">Verify: match the pool to the contract from step 1.</p>
+    </article>
+
+    <article class="hnode hn-fee scroll-trigger animate--slide-in" data-cascade>
+      <span class="hn-no">3</span>
+      <img class="hw-bull sticker" src="assets/bull_sticker.webp" alt="" width="404" height="420" loading="lazy">
+      <div class="hn-feetop"><b class="display">1.5%</b><h3>creator fee on trades</h3></div>
+      <p>Every trade carries a 1.5% creator fee. It is split into two equal halves:</p>
+      <div class="hsplit" role="img" aria-label="Fee split: 50% weekly buyback and burn, 50% public project wallet"><span><b>50%</b>Weekly buyback &amp; burn</span><span><b>50%</b>Public project wallet</span></div>
+      <p class="hn-check">Verify: follow both halves below.</p>
+    </article>
+
+    <div class="hfork" aria-hidden="true"><i></i><span class="hf-l">50%</span><span class="hf-r">50%</span><em>splits 50 / 50</em></div>
+
+    <article class="hnode hn-burn scroll-trigger animate--slide-in" data-cascade>
+      <img class="hn-bear sticker" src="assets/bear_sticker.webp" alt="" width="420" height="399" loading="lazy">
+      <span class="hn-pct display">50%</span>
+      <h3>Weekly buyback &amp; burn</h3>
+      <p>Once a week, this half is used to buy back $UNBEAR, and those tokens are burned. Each burn gets a row with its transaction in the burn table.</p>
+      <a class="vbtn" role="link" aria-disabled="true" data-verify="burn-table"><span class="vk">Verify burn table</span><span class="vs">Link at launch</span></a>
+    </article>
+
+    <article class="hnode hn-wallet scroll-trigger animate--slide-in" data-cascade>
+      <span class="hn-pct display">50%</span>
+      <h3>Public project wallet</h3>
+      <p>This half goes to a public wallet used for promotion and meme contest prizes. Anyone can watch what comes in and what goes out.</p>
+      <a class="vbtn" role="link" aria-disabled="true" data-verify="project-wallet"><span class="vk">Verify project wallet</span><span class="vs">Link at launch</span></a>
+    </article>
+
+    <article class="hnode hn-dev scroll-trigger animate--slide-in" data-cascade>
+      <span class="hn-side">Separately: the dev's own bag</span>
+      <h3>Dev buy: 0.02 ETH, locked</h3>
+      <p>The dev buy is <strong>0.02 ETH</strong>. Those tokens are locked in <strong>Sablier</strong> for <strong>90 days</strong> and unlock gradually, not all at once.</p>
+      <div class="hlock" aria-hidden="true"><div class="hl-bar"><i></i></div><div class="hl-lbl"><span>Day 0 · locked</span><span>gradual unlock</span><span>Day 90</span></div></div>
+      <a class="vbtn" role="link" aria-disabled="true" data-verify="sablier-lock"><span class="vk">Verify Sablier lock</span><span class="vs">Link at launch</span></a>
+    </article>
+  </div>
+
+  <p class="hw-foot scroll-trigger animate--slide-in">Not financial advice. No profit promises. No EU authority has reviewed this project. Verify everything yourself.</p>
 </div></section>
 
 <section class="light" id="receipts"><div class="wrap compare">
