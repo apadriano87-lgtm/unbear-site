@@ -240,6 +240,7 @@ footer a{color:#000;font-weight:800}
 footer .fine{font-size:13px;margin-top:10px;font-weight:600}
 .fab{position:fixed;right:18px;bottom:18px;z-index:20;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#000;border:3px solid var(--neon);box-shadow:0 4px 0 rgba(0,0,0,.5);transition:transform var(--duration-medium)}
 .fab:hover{transform:scale(1.08) rotate(-6deg)}
+.fab-telegram{bottom:88px}
 .fab svg{width:24px;height:24px;fill:#fff}
 .mcount,.bnav,.toast{display:none}
 
@@ -317,10 +318,10 @@ footer .fine{font-size:13px;margin-top:10px;font-weight:600}
   .mcount .t{font-family:"Luckiest Guy",Impact,sans-serif;font-weight:400;font-size:18px;color:var(--neon);font-variant-numeric:tabular-nums;letter-spacing:.5px}
   .mcount a{color:#000;background:var(--neon);border-radius:8px;padding:5px 10px;text-decoration:none;font-size:12px;white-space:nowrap}
   /* thumb-friendly bottom nav with raised Buy button */
-  .bnav{display:grid;grid-template-columns:repeat(5,1fr);align-items:end;position:fixed;left:0;right:0;bottom:0;z-index:26;height:var(--bottom-nav-h);padding:0 6px env(safe-area-inset-bottom);background:rgba(2,8,28,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid var(--neon)}
+  .bnav{display:grid;grid-template-columns:repeat(6,1fr);align-items:end;position:fixed;left:0;right:0;bottom:0;z-index:26;height:var(--bottom-nav-h);padding:0 6px env(safe-area-inset-bottom);background:rgba(2,8,28,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid var(--neon)}
   .bnav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;height:72px;color:var(--muted);text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.3px;-webkit-tap-highlight-color:transparent;transition:color var(--duration-medium)}
   .bnav a svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--duration-medium)}
-  .bnav a svg.xlogo{fill:currentColor;stroke:none;width:21px;height:21px;margin:1px 0 2px}
+  .bnav a svg.xlogo,.bnav a svg.tlogo{fill:currentColor;stroke:none;width:21px;height:21px;margin:1px 0 2px}
   .bnav a.on{color:var(--neon)}
   .bnav a.on svg{transform:translateY(-2px)}
   .bnav a:active svg{transform:scale(.85)}
