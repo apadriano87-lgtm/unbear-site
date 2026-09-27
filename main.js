@@ -9,7 +9,7 @@
   function p(n){return (n<10?'0':'')+n}
   function tick(){
     var s=Math.floor((T-Date.now())/1000);
-    if(s<=0){$('count').innerHTML='<div style="flex:1"><b style="font-size:22px">Launch time!</b><span>Contract: check this page + @unbear_token</span></div>';$('mc-t').textContent='LIVE';return}
+    if(s<=0){$('count').innerHTML='<div style="flex:1"><b style="font-size:22px">Launch time!</b><span>Contract: only on this page + t.me/unbear_fun</span></div>';$('mc-t').textContent='LIVE';return}
     var dd=Math.floor(s/86400),hh=p(Math.floor(s%86400/3600)),mm=p(Math.floor(s%3600/60)),ss=p(s%60);
     $('cd-d').textContent=dd;$('cd-h').textContent=hh;$('cd-m').textContent=mm;$('cd-s').textContent=ss;
     $('mc-t').textContent=dd+'d '+hh+':'+mm+':'+ss;
@@ -39,7 +39,7 @@
       toast('Not live yet. The address is revealed Thu 8 Oct, 20:00 Warsaw time. Any address before that is fake.');
       $('ca-tap').textContent='Coming soon';setTimeout(function(){$('ca-tap').textContent='Tap to copy'},2200);return;
     }
-    copyText(ca,function(){$('ca-tap').textContent='Copied!';toast('Contract address copied. Double-check it on @unbear_token.')});
+    copyText(ca,function(){$('ca-tap').textContent='Copied!';toast('Contract address copied. It is published only here and on t.me/unbear_fun.')});
   });
 
   /* Full-screen menu */
@@ -74,7 +74,7 @@
       });
     },{rootMargin:'0px 0px -50px 0px'});
     [].forEach.call(d.getElementsByClassName('scroll-trigger'),function(t){io.observe(t)});
-    /* Fee bar fill + touch "seen" glow on cards */
+    /* Touch "seen" glow on cards */
     var io2=new IntersectionObserver(function(entries,obs){
       entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('seen','in');obs.unobserve(en.target)}});
     },{threshold:.35});
