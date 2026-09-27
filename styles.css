@@ -730,3 +730,9 @@ footer .ca-full{font-size:16px;font-family:"Open Sans",sans-serif}
 html.ca-live [data-ca-slot]{text-transform:none}
 html.ca-live footer strong[data-ca-slot=full]{display:flex;margin:8px auto}
 @media (min-width:981px){.actions .btn-tg .sh{display:none}}
+
+/* Sablier lock: neutral "at launch" marker until ca.json has the stream URL (ca.js swaps it for ✓) */
+.atl{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;line-height:1.15;padding:5px 9px;border-radius:999px;border:2px dashed #000;background:#fff6c4;color:#000;white-space:nowrap}
+.sab-link{font-weight:800;text-decoration:underline;text-underline-offset:3px;color:inherit;white-space:nowrap}
+.hn-dev .sab-link{color:#0b5c00}
+@media (max-width:760px){.atl{font-size:10px;padding:4px 6px;letter-spacing:.4px}}

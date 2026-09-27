@@ -1,6 +1,10 @@
 /* $UNBEAR contract-address loader (all pages).
    AT LAUNCH: edit only /ca.json, e.g.
-     {"address":"0x…40 hex…","live":true,"explorer":"https://robinhoodchain.blockscout.com/token/0x…","chart":"https://dexscreener.com/robinhood/0x…"}
+     {"address":"0x…40 hex…","live":true,"explorer":"https://robinhoodchain.blockscout.com/token/0x…","chart":"https://dexscreener.com/robinhood/0x…","sablier":null}
+   Once the Sablier stream exists (and only then), set "sablier" to its https URL (e.g. the app.sablier.com stream page).
+   That switches every [data-sab-hide]/[data-sab-show] pair from "will be locked… at launch" to "locked", fills
+   [data-sab-link] links, turns the commitments-table "at launch" marker into ✓ and enables "Verify Sablier lock".
+   "sablier" works independently of "address".
    The JSON is fetched with a cache-busting query (?t=Date.now()) and cache:'no-store', so it shows up even while
    GitHub Pages still serves the cached HTML (max-age=600). Until "address" holds a valid 0x address, nothing changes and
    the static "coming soon" text stays (that is also the no-JS fallback).
@@ -45,7 +49,17 @@
       var lk=d.getElementById('ca-links');if(lk){lk.textContent='';lk.appendChild(link(ex,'View on explorer ↗'));if(ch)lk.appendChild(link(ch,'Chart ↗'));lk.hidden=false}}
     d.querySelectorAll('.vbtn[data-verify="contract"]').forEach(function(v){v.href=ex;v.target='_blank';v.rel='noopener';v.removeAttribute('aria-disabled');v.removeAttribute('role');var s=v.querySelector('.vs');if(s)s.textContent='Open'});
   }
+  /* Sablier dev-buy lock: never shown as done until ca.json carries the real stream URL */
+  function applySab(j){
+    var u=j&&j.sablier;if(!ok(u))return;
+    d.documentElement.classList.add('sab-live');
+    d.querySelectorAll('[data-sab-hide]').forEach(function(e){e.hidden=true});
+    d.querySelectorAll('[data-sab-show]').forEach(function(e){e.hidden=false});
+    d.querySelectorAll('a[data-sab-link]').forEach(function(a){a.href=u;a.target='_blank';a.rel='noopener'});
+    d.querySelectorAll('.vbtn[data-verify="sablier-lock"]').forEach(function(v){v.href=u;v.target='_blank';v.rel='noopener';v.removeAttribute('aria-disabled');v.removeAttribute('role');var s=v.querySelector('.vs');if(s)s.textContent='Open'});
+  }
+  function run(j){try{applySab(j)}catch(e){}apply(j)}
   if(!window.fetch)return;
-  fetch('/ca.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(apply).catch(function(){});
-  window.UNBEAR_CA={apply:apply};
+  fetch('/ca.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(run).catch(function(){});
+  window.UNBEAR_CA={apply:apply,applySablier:applySab};
 })();
