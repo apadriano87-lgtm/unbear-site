@@ -2,11 +2,11 @@
    (or if the file can't be loaded). All text goes in via textContent, never as HTML. */
 (function(){
   var d=document,list=d.getElementById('hof-list');
-  /* OG Bear note: switch to "closed" wording after launch (Thu 8 Oct 2026 20:00 Warsaw = 18:00 UTC) */
-  var T=Date.UTC(2026,9,8,18,0,0);
+  /* OG Bear note: switch to "closed" wording after launch (Tue 20 Oct 2026 20:00 Warsaw = 18:00 UTC) */
+  var T=Date.UTC(2026,9,20,18,0,0);
   if(Date.now()>=T){
     var og=d.getElementById('og-text'),b=d.getElementById('og-btn');
-    if(og){og.textContent='The OG Bear list closed at launch (Thu 8 Oct 2026, 20:00 Warsaw time). Thanks to the first 100 who joined early. The title stays in the Telegram group.'}
+    if(og){og.textContent='The OG Bear list closed at launch (Tue 20 Oct 2026, 20:00 Warsaw time). Thanks to the first 100 who joined early. The title stays in the Telegram group.'}
     if(b){b.textContent='Open the Telegram →'}
   }
   if(!list||!window.fetch)return;

@@ -4,8 +4,8 @@
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var mobile=window.matchMedia('(max-width: 760px)');
 
-  /* Countdown to Thu 8 Oct 2026 20:00 Europe/Warsaw (CEST, UTC+2) = 18:00 UTC */
-  var T=Date.UTC(2026,9,8,18,0,0);
+  /* Countdown to Tue 20 Oct 2026 20:00 Europe/Warsaw (CEST, UTC+2) = 18:00 UTC */
+  var T=Date.UTC(2026,9,20,18,0,0);
   function p(n){return (n<10?'0':'')+n}
   function tick(){
     var s=Math.floor((T-Date.now())/1000);
@@ -36,7 +36,7 @@
   $('ca').addEventListener('click',function(){
     var ca=this.getAttribute('data-ca');
     if(!ca){
-      toast('Not live yet: revealed Thu 8 Oct, 20:00 Warsaw time. The contract address is published only on unbear.fun and in t.me/unbear_fun. Anything else is fake.');
+      toast('Not live yet: revealed Tue 20 Oct, 20:00 Warsaw time. The contract address is published only on unbear.fun and in t.me/unbear_fun. Anything else is fake.');
       $('ca-tap').textContent='Coming soon';setTimeout(function(){$('ca-tap').textContent='Tap to copy'},2200);return;
     }
     copyText(ca,function(){$('ca-tap').textContent='Copied!';toast('Contract address copied. It is published only on unbear.fun and in t.me/unbear_fun. Anything else is fake.')});
