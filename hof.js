@@ -2,14 +2,8 @@
    (or if the file can't be loaded). All text goes in via textContent, never as HTML. */
 (function(){
   var d=document,list=d.getElementById('hof-list');
-  /* OG Bear note: switch to "closed" wording after launch. No launch date is set (launch once @unbear_token passes
-     5,000 followers, date announced ahead), so this stays OFF. At launch set OG_CLOSED=true. */
-  var OG_CLOSED=false;
-  if(OG_CLOSED){
-    var og=d.getElementById('og-text'),b=d.getElementById('og-btn');
-    if(og){og.textContent='The OG Bear list closed at launch. Thanks to the first 100 who joined early. The title stays in the Telegram group.'}
-    if(b){b.textContent='Open the Telegram →'}
-  }
+  /* OG Bear note: no clock. index.html has #og-text [data-ca-hide] + #og-closed [data-ca-show]; ca.js flips them
+     (and the #og-btn label) when ca.json gets the real contract address, i.e. exactly at launch. */
   if(!list||!window.fetch)return;
   function el(tag,cls,txt){var e=d.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
   var HOF_URL='https://unbear.fun/#halloffame';
