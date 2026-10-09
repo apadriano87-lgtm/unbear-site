@@ -4,18 +4,8 @@
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var mobile=window.matchMedia('(max-width: 760px)');
 
-  /* Countdown to Tue 20 Oct 2026 20:00 Europe/Warsaw (CEST, UTC+2) = 18:00 UTC */
-  var T=Date.UTC(2026,9,20,18,0,0);
-  function p(n){return (n<10?'0':'')+n}
-  function tick(){
-    var s=Math.floor((T-Date.now())/1000);
-    if(s<=0){$('count').innerHTML='<div style="flex:1"><b style="font-size:22px">Launch time!</b><span>Contract: only on this page + t.me/unbear_fun</span></div>';$('mc-t').textContent='LIVE';return}
-    var dd=Math.floor(s/86400),hh=p(Math.floor(s%86400/3600)),mm=p(Math.floor(s%3600/60)),ss=p(s%60);
-    $('cd-d').textContent=dd;$('cd-h').textContent=hh;$('cd-m').textContent=mm;$('cd-s').textContent=ss;
-    $('mc-t').textContent=dd+'d '+hh+':'+mm+':'+ss;
-    setTimeout(tick,1000-(Date.now()%1000));
-  }
-  tick();
+  /* Launch rule (9 Oct 2026): no fixed date. Launch once @unbear_token passes 5,000 followers; date announced ahead.
+     Static text only: no countdown, no live follower count. When a date is announced, update the hero + #mc-t text in index.html. */
 
   /* Toast + copy helpers */
   var tt;
@@ -36,7 +26,7 @@
   $('ca').addEventListener('click',function(){
     var ca=this.getAttribute('data-ca');
     if(!ca){
-      toast('Not live yet: revealed Tue 20 Oct, 20:00 Warsaw time. The contract address is published only on unbear.fun and in t.me/unbear_fun. Anything else is fake.');
+      toast('Not live yet: revealed at launch, once @unbear_token passes 5,000 followers (date announced ahead). The contract address is published only on unbear.fun and in t.me/unbear_fun. Anything else is fake.');
       $('ca-tap').textContent='Coming soon';setTimeout(function(){$('ca-tap').textContent='Tap to copy'},2200);return;
     }
     copyText(ca,function(){$('ca-tap').textContent='Copied!';toast('Contract address copied. It is published only on unbear.fun and in t.me/unbear_fun. Anything else is fake.')});
